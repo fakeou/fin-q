@@ -1,0 +1,15 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 1,
+  "workspaces": {
+    "": {
+      "name": "dexter-run",
+      "dependencies": {
+        "dexter-agent": "^0.1.0",
+      },
+    },
+  },
+  "packages": {
+    "dexter-agent": ["dexter-agent@0.1.0", "", { "bin": { "dexter-agent": "index.js" } }, "sha512-Sic6R3cTq/3bGYiDzmZM1bfkiyZZ9gh1Ot8AONoS89YC5NjWaWZnQyyfKNGnKEZUbobCfNJkvYK4C9m4L+lM5Q=="],
+  }
+}

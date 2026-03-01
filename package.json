@@ -1,0 +1,14 @@
+{
+  "name": "dexter-run",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "server": "bun run server.ts",
+    "frontend": "cd frontend && bun run dev",
+    "dev": "bun run server.ts & cd frontend && bun run dev",
+    "build": "cd frontend && bun run build"
+  },
+  "dependencies": {
+    "dexter-agent": "^0.1.0"
+  }
+}
