@@ -5,9 +5,9 @@ import logoImg from "../assets/imgs/logo.png";
 
 const TICKERS = [
   { label: "S&P 500", value: "+1.24%", positive: true },
-  { label: "NASDAQ",  value: "+0.87%", positive: true },
-  { label: "BTC",     value: "-0.34%", positive: false },
-  { label: "Gold",    value: "+0.52%", positive: true },
+  { label: "NASDAQ", value: "+0.87%", positive: true },
+  { label: "BTC", value: "-0.34%", positive: false },
+  { label: "Gold", value: "+0.52%", positive: true },
 ];
 
 export default function LoginPage() {
@@ -274,14 +274,6 @@ export default function LoginPage() {
             </div>
           ))}
         </div>
-
-        {/* Footer */}
-        <p
-          className="mt-7 text-[10px] text-center fade-up-4"
-          style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)", letterSpacing: "0.06em" }}
-        >
-          Powered by AI
-        </p>
       </div>
     </div>
   );
