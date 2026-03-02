@@ -76,7 +76,7 @@ export default function InputArea({ onSend, disabled }: Props) {
                 letterSpacing: "0.04em",
               }}
             >
-              {disabled ? "analyzing market data…" : "FinQ · Gemini 2.5"}
+              {disabled ? "analyzing market data…" : "FinQ"}
             </span>
           </div>
 

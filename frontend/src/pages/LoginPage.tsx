@@ -280,7 +280,7 @@ export default function LoginPage() {
           className="mt-7 text-[10px] text-center fade-up-4"
           style={{ color: "var(--text-muted)", fontFamily: "var(--font-mono)", letterSpacing: "0.06em" }}
         >
-          Powered by Gemini 2.5
+          Powered by AI
         </p>
       </div>
     </div>
