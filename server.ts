@@ -69,7 +69,8 @@ Bun.serve({
           // Keepalive: send SSE comment every 5s to prevent proxy/browser from closing idle connection
           let closed = false;
           const keepalive = setInterval(() => {
-            if (!closed) controller.enqueue(enc.encode(": keepalive\n\n"));
+            if (closed) { clearInterval(keepalive); return; }
+            try { controller.enqueue(enc.encode(": keepalive\n\n")); } catch { closed = true; clearInterval(keepalive); }
           }, 5_000);
 
           const reader  = proc.stdout.getReader();

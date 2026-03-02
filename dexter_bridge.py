@@ -22,7 +22,10 @@ load_dotenv(override=True)
 
 def emit(event_type: str, **kwargs):
     """Write one JSON event to stdout, flushed immediately."""
-    print(json.dumps({"type": event_type, **kwargs}), flush=True)
+    try:
+        print(json.dumps({"type": event_type, **kwargs}), flush=True)
+    except BrokenPipeError:
+        sys.exit(0)
 
 
 # ── Patch show_progress BEFORE importing dexter.agent ─────────────────────
