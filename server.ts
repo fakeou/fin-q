@@ -66,14 +66,11 @@ Bun.serve({
           proc.stdin.write(JSON.stringify({ question, history }) + "\n");
           proc.stdin.end();
 
-          // 120s timeout guard
-          let timedOut = false;
-          const timer  = setTimeout(() => {
-            timedOut = true;
-            proc.kill();
-            send(JSON.stringify({ type: "error", message: "Request timed out (120s)" }));
-            controller.close();
-          }, 120_000);
+          // Keepalive: send SSE comment every 5s to prevent proxy/browser from closing idle connection
+          let closed = false;
+          const keepalive = setInterval(() => {
+            if (!closed) controller.enqueue(enc.encode(": keepalive\n\n"));
+          }, 5_000);
 
           const reader  = proc.stdout.getReader();
           const decoder = new TextDecoder();
@@ -105,18 +102,16 @@ Bun.serve({
               }
             }
           } finally {
-            clearTimeout(timer);
-            if (!timedOut) {
-              // Save assistant reply to session history
-              if (assistantAnswer) {
-                const cur = sessions.get(sessionId) ?? [];
-                sessions.set(sessionId, [
-                  ...cur,
-                  { role: "assistant", content: assistantAnswer },
-                ]);
-              }
-              controller.close();
+            closed = true;
+            clearInterval(keepalive);
+            if (assistantAnswer) {
+              const cur = sessions.get(sessionId) ?? [];
+              sessions.set(sessionId, [
+                ...cur,
+                { role: "assistant", content: assistantAnswer },
+              ]);
             }
+            controller.close();
           }
         },
       });

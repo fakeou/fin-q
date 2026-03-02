@@ -17,7 +17,7 @@ import sys
 import json
 from functools import wraps
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv(override=True)
 
 
 def emit(event_type: str, **kwargs):

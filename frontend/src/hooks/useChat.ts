@@ -2,7 +2,7 @@ import { useCallback, useRef } from "react";
 import { useApp } from "../contexts/AppContext";
 import type { SSEEvent } from "../types/api";
 
-const API_BASE = "";
+const API_BASE = "http://localhost:3001";
 
 export function useChat() {
   const {

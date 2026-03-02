@@ -9,7 +9,29 @@
       "Bash(git config user.name \"fakeou\" && git config user.email \"1596136105@qq.com\")",
       "Bash(git config --global user.name \"fakeou\" && git config --global user.email \"1596136105@qq.com\" && echo \"done\")",
       "Bash(git config --global user.name && git config --global user.email)",
-      "Bash(git config --global user.name \"fake\" && git config --global user.name)"
+      "Bash(git config --global user.name \"fake\" && git config --global user.name)",
+      "WebSearch",
+      "Bash(ps -p 47222 -o pid,command)",
+      "Bash(curl -s http://localhost:3001/health)",
+      "Bash(kill 47222)",
+      "Bash(curl -s -N -X POST http://localhost:3001/api/chat \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\"sessionId\":\"test-1\",\"question\":\"What is Apple revenue for 2024?\"}' \\\\\n  --max-time 60)",
+      "Bash(curl -s -N -X POST http://localhost:3001/api/chat \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\"sessionId\":\"test-2\",\"question\":\"What is Apple revenue for 2024?\"}' \\\\\n  --max-time 60)",
+      "Bash(curl -s http://localhost:3001/health && echo \"\" && lsof -ti :3001 | xargs ps -p)",
+      "Bash(curl -s https://api.minimax.io/v1/models \\\\\n  -H \"Authorization: Bearer sk-api-p04C6N8OTmbIzfJ6sXx5HUBw-DenodFS3AddJ_gL-RObm9q8aaxVVoaAEcPjwJIE3Fnd92VsKTP66KNpW3yiER9t3Tv-TImxOgyOfHhW1ibFsLafeJzxf7s\")",
+      "Bash(curl -s https://api.minimax.chat/v1/models \\\\\n  -H \"Authorization: Bearer sk-api-p04C6N8OTmbIzfJ6sXx5HUBw-DenodFS3AddJ_gL-RObm9q8aaxVVoaAEcPjwJIE3Fnd92VsKTP66KNpW3yiER9t3Tv-TImxOgyOfHhW1ibFsLafeJzxf7s\")",
+      "Bash(curl -s -X POST https://api.minimax.chat/v1/chat/completions \\\\\n  -H \"Authorization: Bearer sk-api-p04C6N8OTmbIzfJ6sXx5HUBw-DenodFS3AddJ_gL-RObm9q8aaxVVoaAEcPjwJIE3Fnd92VsKTP66KNpW3yiER9t3Tv-TImxOgyOfHhW1ibFsLafeJzxf7s\" \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\"model\":\"MiniMax-M2.1\",\"messages\":[{\"role\":\"user\",\"content\":\"hi\"}]}')",
+      "Bash(curl -s -N -X POST http://localhost:3001/api/chat \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\"sessionId\":\"test-3\",\"question\":\"What is Apple revenue for 2024?\"}' \\\\\n  --max-time 60)",
+      "Bash(curl -s -N -X POST http://localhost:3001/api/chat \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\"sessionId\":\"test-4\",\"question\":\"What is Apple revenue for 2024?\"}' \\\\\n  --max-time 120)",
+      "Bash(lsof -ti :3001)",
+      "Bash(curl -s -N -X POST http://localhost:3001/api/chat \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\"sessionId\":\"test-5\",\"question\":\"What is Apple revenue for 2024?\"}' \\\\\n  --max-time 120)",
+      "Bash(curl -s -N -X POST http://localhost:3001/api/chat \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\"sessionId\":\"test-6\",\"question\":\"What is Apple revenue for 2024?\"}' \\\\\n  --max-time 180 2>&1)",
+      "Bash(echo '{\"question\":\"What is Apple revenue for 2024?\",\"history\":[]}' | .venv/bin/python dexter_bridge.py 2>&1)",
+      "Bash(curl -s -X POST https://api.minimax.chat/v1/chat/completions \\\\\n  -H \"Authorization: Bearer $\\(grep OPENAI_API_KEY /Users/mac/Documents/work/fin-q/.env | cut -d= -f2\\)\" \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\n    \"model\": \"MiniMax-Text-01\",\n    \"messages\": [{\"role\": \"user\", \"content\": \"hi\"}],\n    \"tools\": [{\"type\": \"function\",\"function\":{\"name\":\"test\",\"description\":\"test\",\"parameters\":{\"type\":\"object\",\"properties\":{\"q\":{\"type\":\"string\"}},\"required\":[\"q\"]}}}]\n  }' | python3 -m json.tool 2>/dev/null | head -20)",
+      "Bash(curl -s -X POST https://api.minimax.chat/v1/chat/completions \\\\\n  -H \"Authorization: Bearer $\\(grep OPENAI_API_KEY /Users/mac/Documents/work/fin-q/.env | cut -d= -f2\\)\" \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\n    \"model\": \"MiniMax-Text-01\",\n    \"messages\": [{\"role\": \"user\", \"content\": \"reply with json: {\\\\\"done\\\\\": true}\"}],\n    \"response_format\": {\"type\": \"json_object\"}\n  }' | python3 -m json.tool 2>/dev/null | head -20)",
+      "Bash(.venv/bin/python -c \"import dexter.model; print\\(dexter.model.__file__\\)\")",
+      "Bash(lsof -ti :3001 | xargs ps -p 2>/dev/null)",
+      "Bash(echo '{\"question\":\"Fetch Apple income statement for fiscal year 2024\",\"history\":[]}' | .venv/bin/python dexter_bridge.py 2>&1 | grep -v UserWarning | grep -v PydanticSer | grep -v \"return self\")",
+      "Bash(curl -s -N -X POST http://localhost:3001/api/chat \\\\\n  -H \"Content-Type: application/json\" \\\\\n  -d '{\"sessionId\":\"test-kimi\",\"question\":\"What is Apple revenue for fiscal year 2024?\"}' \\\\\n  --max-time 120 2>&1)"
     ]
   }
 }
